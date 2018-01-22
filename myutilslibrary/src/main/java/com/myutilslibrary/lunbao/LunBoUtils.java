@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.myutilslibrary.R;
+import com.myutilslibrary.utils.PicUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -53,13 +54,19 @@ public class LunBoUtils {
 
     };
     //固定布局 参数
-    public  void lunBo(Activity act,int number,List<ImageView> Imglist) {
+    public  void lunBo(Activity act,List<String> url,int number) {
         activity=act;
         inflater = LayoutInflater.from(act);
         mviewPager=act.findViewById(R.id.activity_home_viewpager);
         dotLayout=act.findViewById(R.id.activity_home_dotLayout);
         dotLayout.removeAllViews();
         num=number;
+        List<ImageView> Imglist=new ArrayList<>();
+        for (int i = 0; i <url.size() ; i++) {
+            ImageView imgi = (ImageView) inflater.inflate(R.layout.scroll_vew_item, null);
+            PicUtils.glide(act, url.get(i), imgi);
+            Imglist.add(imgi);
+        }
         list=Imglist;
         initView(num,list);
         if (isAutoPlay) {
@@ -67,13 +74,19 @@ public class LunBoUtils {
         }
     }
     //固定布局 参数+时间
-    public  void lunBo(Activity act,int number,int time,List<ImageView> Imglist) {
+    public  void lunBo(Activity act,int number,List<String> url,int time) {
         activity=act;
         inflater = LayoutInflater.from(act);
         mviewPager=act.findViewById(R.id.activity_home_viewpager);
         dotLayout=act.findViewById(R.id.activity_home_dotLayout);
         dotLayout.removeAllViews();
         num=number;
+        List<ImageView> Imglist=new ArrayList<>();
+        for (int i = 0; i <url.size() ; i++) {
+            ImageView imgi = (ImageView) inflater.inflate(R.layout.scroll_vew_item, null);
+            PicUtils.glide(act, url.get(i), imgi);
+            Imglist.add(imgi);
+        }
         list=Imglist;
         initView(num,list);
         if (isAutoPlay) {
@@ -82,13 +95,19 @@ public class LunBoUtils {
     }
 
     //自定义布局参数
-    public  void lunBo(Activity act, ViewPager mv, LinearLayout dotLay, int number, List<ImageView> Imglist) {
+    public  void lunBo(Activity act, ViewPager mv, LinearLayout dotLay,List<String> url, int number) {
         activity = act;
         inflater = LayoutInflater.from(act);
         mviewPager = mv;
         dotLayout = dotLay;
         dotLayout.removeAllViews();
         num = number;
+        List<ImageView> Imglist=new ArrayList<>();
+        for (int i = 0; i <url.size() ; i++) {
+            ImageView imgi = (ImageView) inflater.inflate(R.layout.scroll_vew_item, null);
+            PicUtils.glide(act, url.get(i), imgi);
+            Imglist.add(imgi);
+        }
         list = Imglist;
         initView(num, list);
         if (isAutoPlay) {
@@ -96,19 +115,107 @@ public class LunBoUtils {
         }
     }
         //自定义布局 时间 参数
-        public  void lunBo(Activity act, ViewPager mv, LinearLayout dotLay, int number, int time, List<ImageView> Imglist) {
+        public  void lunBo(Activity act, ViewPager mv, LinearLayout dotLay,List<String> url, int number, int time) {
             activity=act;
             inflater = LayoutInflater.from(act);
             mviewPager=mv;
             dotLayout=dotLay;
             dotLayout.removeAllViews();
             num=number;
-            list=Imglist;
+            List<ImageView> Imglist=new ArrayList<>();
+            for (int i = 0; i <url.size() ; i++) {
+                ImageView imgi = (ImageView) inflater.inflate(R.layout.scroll_vew_item, null);
+                PicUtils.glide(act, url.get(i), imgi);
+                Imglist.add(imgi);
+            }
             initView(num,list);
             if (isAutoPlay) {
                 startPlay(time);
             }
         }
+
+
+    //固定布局 参数
+    public  void lunBo(Activity act,int number,List<Integer> url) {
+        activity=act;
+        inflater = LayoutInflater.from(act);
+        mviewPager=act.findViewById(R.id.activity_home_viewpager);
+        dotLayout=act.findViewById(R.id.activity_home_dotLayout);
+        dotLayout.removeAllViews();
+        num=number;
+        List<ImageView> Imglist=new ArrayList<>();
+        for (int i = 0; i <url.size() ; i++) {
+            ImageView imgi = (ImageView) inflater.inflate(R.layout.scroll_vew_item, null);
+            PicUtils.glide(act, url.get(i), imgi);
+            Imglist.add(imgi);
+        }
+        list=Imglist;
+        initView(num,list);
+        if (isAutoPlay) {
+            startPlay(4);
+        }
+    }
+    //固定布局 参数+时间
+    public  void lunBo(Activity act,int number,int time,List<Integer> url) {
+        activity=act;
+        inflater = LayoutInflater.from(act);
+        mviewPager=act.findViewById(R.id.activity_home_viewpager);
+        dotLayout=act.findViewById(R.id.activity_home_dotLayout);
+        dotLayout.removeAllViews();
+        num=number;
+        List<ImageView> Imglist=new ArrayList<>();
+        for (int i = 0; i <url.size() ; i++) {
+            ImageView imgi = (ImageView) inflater.inflate(R.layout.scroll_vew_item, null);
+            PicUtils.glide(act, url.get(i), imgi);
+            Imglist.add(imgi);
+        }
+        list=Imglist;
+        initView(num,list);
+        if (isAutoPlay) {
+            startPlay(time);
+        }
+    }
+
+    //自定义布局参数
+    public  void lunBo(Activity act, ViewPager mv, LinearLayout dotLay, int number,List<Integer> url) {
+        activity = act;
+        inflater = LayoutInflater.from(act);
+        mviewPager = mv;
+        dotLayout = dotLay;
+        dotLayout.removeAllViews();
+        num = number;
+        List<ImageView> Imglist=new ArrayList<>();
+        for (int i = 0; i <url.size() ; i++) {
+            ImageView imgi = (ImageView) inflater.inflate(R.layout.scroll_vew_item, null);
+            PicUtils.glide(act, url.get(i), imgi);
+            Imglist.add(imgi);
+        }
+        list = Imglist;
+        initView(num, list);
+        if (isAutoPlay) {
+            startPlay(4);
+        }
+    }
+    //自定义布局 时间 参数
+    public  void lunBo(Activity act, ViewPager mv, LinearLayout dotLay, int number, int time, List<Integer> url) {
+        activity=act;
+        inflater = LayoutInflater.from(act);
+        mviewPager=mv;
+        dotLayout=dotLay;
+        dotLayout.removeAllViews();
+        num=number;
+        List<ImageView> Imglist=new ArrayList<>();
+        for (int i = 0; i <url.size() ; i++) {
+            ImageView imgi = (ImageView) inflater.inflate(R.layout.scroll_vew_item, null);
+            PicUtils.glide(act, url.get(i), imgi);
+            Imglist.add(imgi);
+        }
+        initView(num,list);
+        if (isAutoPlay) {
+            startPlay(time);
+        }
+    }
+
 
     public void initView(int num,List<ImageView> list) {
         dotViewList = new ArrayList<ImageView>();

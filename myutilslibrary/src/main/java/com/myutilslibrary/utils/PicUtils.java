@@ -78,6 +78,9 @@ public class PicUtils {
     public static void  glide(Context context, String url, ImageView iv){
         Glide.with(context).load(url).into(iv);
     }
+    public static void  glide(Context context, int url, ImageView iv){
+        Glide.with(context).load(url).into(iv);
+    }
     //加载
     public static void  glidelod(Context context,String url,int lodadpic,ImageView iv){
         Glide.with(context).load(url).placeholder(lodadpic).into(iv);
